@@ -5,20 +5,45 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        ...
       </header>
+      
+      <main>
+        
+          <nav>
+            ... menu
+            campos de busca
+            carrinho
+            logo
+            masculino
+            feminino
+            login
+
+          </nav>
+          <div>
+            imagem de abertura ou slideshow
+          </div>
+
+          <div>
+            <section>
+              card produtos
+            </section>
+          </div>
+      # 109f83
+      # 0b8bf0
+     # 0b90d0
+     # 0d97ac
+    #  15aa53
+      </main>
+
+      <footer>
+        redes sociais 
+        whats
+        email
+        endereço
+        ....
+      </footer>
     </div>
   );
 }
