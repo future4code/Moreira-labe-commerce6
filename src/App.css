@@ -2,3 +2,21 @@
   text-align: center;
 }
 
+.fotoCapa {
+  margin-top:15px;
+  
+  padding-top: 4rem;
+  width: 100%;
+ 
+
+
+}
+
+
+
+.footer {
+  background-color: black;
+  height: 60px;
+  bottom: 0px;
+
+}

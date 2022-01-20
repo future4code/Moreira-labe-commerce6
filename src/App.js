@@ -1,13 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import GifPromo from './imagens/FotoCapaPraia.png';
+import ContainerHeader from './components/Header/index';
+
 
 function App() {
   return (
     <div className="App">
-      <header>
-        ...
-      </header>
+      <ContainerHeader/>
+      <div>
+
+        <img className="fotoCapa" src={GifPromo}/>
+
+      </div>
       
       <main>
         
@@ -22,7 +27,7 @@ function App() {
 
           </nav>
           <div>
-            imagem de abertura ou slideshow
+            imagem de abertura ou slideshow smartmockups
           </div>
 
           <div>
@@ -30,19 +35,19 @@ function App() {
               card produtos
             </section>
           </div>
-      # 109f83
-      # 0b8bf0
-     # 0b90d0
-     # 0d97ac
-    #  15aa53
-      </main>
+              # 109f83
+              # 0b8bf0
+            # 0b90d0
+            # 0d97ac
+            #  15aa53
+          </main>
 
-      <footer>
-        redes sociais 
-        whats
-        email
-        endereço
-        ....
+         <footer className="footer">
+            redes sociais 
+            whats
+            email
+            endereço
+            ....
       </footer>
     </div>
   );
