@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 
-
-
 const ProdutoContainer = styled.div`
 
   width: 100%;
@@ -56,7 +54,7 @@ const Botao = styled.button `
       }
 `
 
-class Produto extends React.Component {
+class ProdutosNaPromo extends React.Component {
 
   // nunca esquecer de inicalizar os props dentro do constructor
   constructor(props) {
@@ -67,11 +65,10 @@ class Produto extends React.Component {
 
     return (
       <ProdutoContainer >
-        
-        <a><FotoProduto src={this.props.produto.foto} alt="Imagem do produto" /></a>
+        <a><FotoProduto src={this.props.produto.foto} alt={"Imagem do produto"} /></a>
         <NomeProduto>{this.props.produto.nome}</NomeProduto>
         <Preco>R${this.props.produto.valor}</Preco>
-        
+        <Promo>R${this.props.produto.promo}</Promo>
         
 
         <Botao
@@ -84,4 +81,4 @@ class Produto extends React.Component {
   }
 }
 
-export default Produto;
+export default ProdutosNaPromo;

@@ -1,74 +1,45 @@
-import React, { Component } from "react";
-import './App.css';
-import Produto from "./components/Produtos";
-import Filters from "./components/Filters";
+import React from "react";
+import '../App.css';
+import ProdutosNaPromo from "./ProdutosNaPromo";
+import Filters from "./Filters";
 import styled from "styled-components";
-import Header from "./components/Header";
-import FotoCapaPraia from './imagens/FotoCapaPraia.png';
-import AreaFooter from './components/AreaFooter';
-import {Sacola} from './components/Sacola';
-import AreaPromo from './components/AreaPromo';
+import {Sacola} from './Sacola';
 
 
-const listaDeProdutos = [
+const listaDeProdutos =[
   {
-    id: 1,
-    nome: "Camiseta Branca",
-    valor: 59.95,
-    foto: "https://i.pinimg.com/236x/65/e6/98/65e698a4aea4dcf8afba471970c86c8b.jpg",
-    quantidade: 0
-  },
-  {
-    id: 2,
-    nome: "Camiseta Rosa Planeta",
-    valor: 69.99,
-    foto: "https://i.pinimg.com/236x/6e/b0/db/6eb0dbaf292cb4873e52035b45bdf333.jpg",
-    quantidade: 0
-  },
-  {
-    id: 3,
-    nome: "Camiseta Amerala",
-    valor: 69.99,
-    foto: "https://i.pinimg.com/736x/5d/b1/fe/5db1fed006a75d0260a988307b21c2cb.jpg",
-    quantidade: 0
-  },
-  {
-    id: 4,
-    nome: "Camiseta Preta Planetas",
-    valor: 59.99,
-    foto: "https://img.ltwebstatic.com/images3_pi/2020/11/09/16048789577e0abd8329299afeedbdcc0697e7d4b6_thumbnail_600x.webp",
-    quantidade: 0
-  },
-  {
-    id: 5,
-    nome: "Camiseta Preta e Branca",
-    valor: 89.99,
-    foto: "https://i.pinimg.com/236x/10/54/8c/10548c2dd04434907e7ce74450be9b70.jpg",
-    quantidade: 0
-  },
-  {
-    id: 6,
-    nome: "Camiseta Azul Atronauta",
-    valor: 95.99,
-    foto: "https://img.ltwebstatic.com/images3_pi/2021/04/25/16193208009c822eb33b3f89767be5a3cc01026422_thumbnail_600x.webp",
-    quantidade: 0
-  },
-  {
-    id: 7,
+    id: 9,
     nome: "Camiseta Nasa",
-    valor: 99.99,
+    promo: "99.99",
+    valor: 49.45,
     foto: "https://i.pinimg.com/236x/a2/49/3f/a2493f313437fec59fd0da305b119342.jpg",
     quantidade: 0
   },
   {
-    id: 8,
+    id: 10,
     nome: "Camisa Coração",
-    valor: 89.99,
+    promo: "89.99",
+    valor: 44.90,
     foto: "https://i.pinimg.com/236x/db/34/7b/db347b59748d25d0c105d0a536712f26.jpg",
     quantidade: 0
   },
-];
-
+  {
+    id: 11,
+    nome: "Camiseta Nasa",
+    promo: "99.99",
+    valor: 49.45,
+    foto: "https://i.pinimg.com/236x/a2/49/3f/a2493f313437fec59fd0da305b119342.jpg",
+    quantidade: 0
+  },
+  {
+    id: 12,
+    nome: "Camisa Coração",
+    promo: "89.99",
+    valor: 44.45,
+    foto: "https://i.pinimg.com/236x/db/34/7b/db347b59748d25d0c105d0a536712f26.jpg",
+    quantidade: 0
+  },
+]
 const ContainerProdutos = styled.div`
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -107,7 +78,7 @@ const Botao = styled.button `
       }
 `
 
-class App extends React.Component {
+class ProdutosNaPromocao extends React.Component {
 
   /**
    * A definição do state dentro do componente deve ser sempre feita dentro do método
@@ -194,14 +165,10 @@ class App extends React.Component {
 
     const listaProdutos = this.state.produtos.map((p) => {
       return (
-        <Produto 
+        <ProdutosNaPromo 
           key={'chave-produto-'+p.id}
           adicionaProdutoNaSacola={this.adicionaProdutoNaSacola}
           produto={p}
-          // key={p.id}
-          // nomeProduto={p.nome}
-          // valorProduto={p.valor}
-          // fotoProduto={p.foto}
         />
       )
     }).sort((prod, proxProd) => {
@@ -213,16 +180,9 @@ class App extends React.Component {
         return -1 * this.state.ordenacao
       }
     });
-
         
     return (
       <div>
-        <Header/>
-        
-        <div>
-          <img className="fotoCapa" src={FotoCapaPraia}/>
-          <Botao>Aproveite Agora</Botao>
-        </div>
         <InfocoesProdutos>
           <p>Quantidade de Produtos: {listaProdutos.length}</p>
           <Filters
@@ -230,24 +190,19 @@ class App extends React.Component {
             onChangeOrdenacao={this.onChangeOrdenacao}
           />
         </InfocoesProdutos>
-
         <ContainerProdutos>
           {listaProdutos}
         </ContainerProdutos>
-        <div>
-          <AreaPromo/>
-        </div>
-        
         <Sacola 
           // passamos as variáveis do estado do componente pai na forma de `props`
           // para o componente filho
           produtosDentroDaSacola={this.state.produtosDentroDaSacola}
           removeProdutoDaSacola={this.removeProdutoDaSacola}
         />
-       <AreaFooter/>
+      
       </div>
     );
   }
 }
 
-export default App;
+export default ProdutosNaPromocao;
