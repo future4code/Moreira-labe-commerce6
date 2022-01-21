@@ -1,51 +1,86 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components';
 
-function App() {
-  return (
-    <div className="App">
-      <header>
-        ...
-      </header>
-      
-      <main>
-        
-          <nav>
-            ... menu
-            campos de busca
-            carrinho
-            logo
-            masculino
-            feminino
-            login
 
-          </nav>
-          <div>
-            imagem de abertura ou slideshow
-          </div>
 
-          <div>
-            <section>
-              card produtos
-            </section>
-          </div>
-      # 109f83
-      # 0b8bf0
-     # 0b90d0
-     # 0d97ac
-    #  15aa53
-      </main>
 
-      <footer>
-        redes sociais 
-        whats
-        email
-        endereço
-        ....
-      </footer>
-    </div>
-  );
+
+class filtroProduto extends React.Component {
+  state = {
+    cestaProdutos: [{
+      id: 1,
+	    name: "Foguete da Missão Apollo 11",
+	    value: 10000.0,
+	    imageUrl: "https://picsum.photos/200/200"
+    },
+    {
+     id: 2,
+     name: "Foguete da Missão Apollo 12",
+     value: 20000.0,
+     imageUrl: "https://picsum.photos/200/200"
+    }
+    ],
+    precoMin: '',
+    precoMax:'',
+    buscaNome:''
+  };
+
+  onChangePrecoMax = (event) => {
+    this.setState({precoMax: event.target.value})
+
+  };
+
+  onChangePrecoMin = (event)=> {
+    this.setState({precoMin: event.target.value})
+
+  };
+
+  onChangeBuscaNome = (event)=> {
+    this.setState({buscaNome: event.target.value})
+
+  };
+
+  render () {
+    return (
+      <filtroProduto>
+
+        <nav>
+
+        <h3>Filtros</h3>
+
+        <div>
+          <p>Valor mínimo:</p>
+
+          <input 
+          value={this.state.precoMin}
+          onChange={this.onChangePrecoMin}
+          />
+
+        </div>
+
+        <div>
+          <p>Valor máximo:</p>
+
+          <input 
+          value={this.state.precoMax}
+          onChange={this.onChangePrecoMax}
+          />
+        </div>
+
+        <div>
+          <p>Busca por nome:</p>
+
+          <input
+          value={this.state.buscaNome}
+          onChange={this.onChangeBuscaNome}
+          />
+        </div>
+        </nav>
+
+      </filtroProduto>
+
+    )
+  }
 }
 
-export default App;
+export default filtroProduto;
