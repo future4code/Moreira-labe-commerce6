@@ -7,7 +7,7 @@ import Header from "./components/Header";
 import FotoCapaPraia from './imagens/FotoCapaPraia.png';
 import AreaFooter from './components/AreaFooter';
 import {Sacola} from './components/Sacola';
-
+import Filtro from './components/Filtro';
 /**
  * Acho que essa constante poderia se chamar listaDeProdutos, porque na verdade aqui não é a sacola,
  * aqui é a lista da qual o usuário escolhe produtos para adicionar na sacola. A sacola à princípio inicia vazia
@@ -103,13 +103,68 @@ class App extends React.Component {
       produtos: listaDeProdutos,
       ordenacao: -1,
       // vamos inicializar uma variável que representa os produtos adicionados na sacola
-      produtosDentroDaSacola: []
+      produtosDentroDaSacola: [],
+      precoMin: '',
+      precoMax:'',
+      buscaNome:''
     };
   }
   
   onChangeOrdenacao = (event) => {
     this.setState({ ordenacao: event.target.value });
   }
+
+  onChangePrecoMax = (event) => {
+    this.setState({precoMax: event.target.value})
+
+  };
+
+  onChangePrecoMin = (event)=> {
+    this.setState({precoMin: event.target.value})
+
+  };
+
+  onChangeBuscaNome = (event)=> {
+    this.setState({buscaNome: event.target.value})
+
+  };
+
+  produtosDoFiltro = () =>{
+    const ProdutosFiltrados = this.state.listaDeProdutos.filter((valor) =>
+      {
+        if(valor > this.precoMin){
+        return true
+      }
+      else {
+        return false
+      }
+    }).filter((valor) =>
+      {
+        if(valor < this.precoMax){
+        return true
+      }
+      else {
+        return false
+      }
+    })
+    const novaListaDeProdutosFiltrados = [...this.state.listaDeProdutos, ProdutosFiltrados]
+
+    this.setState({listaDeProdutos: novaListaDeProdutosFiltrados})
+  }
+
+  produtosDoFiltroNome = () =>{
+    const ProdutosFiltradosPorNome = this.state.listaDeProdutos.filter((nome) =>
+      {
+        if(nome.valor.includes(this.nome)){
+        return true
+      }
+      else {
+        return false
+      }
+    })
+    this.setState({listaDeProdutos: ProdutosFiltradosPorNome})
+  }
+  
 
   // Esse método será chamado por cada card de produto
   adicionaProdutoNaSacola = novoProdutoParaAdicionar => {
@@ -142,6 +197,8 @@ class App extends React.Component {
       return newState;
     });
   }
+
+
 
   // Esse método vamos passar por `props` para o componente da sacola
   // pois é dentro dele que vamos chamar esse método
@@ -178,10 +235,6 @@ class App extends React.Component {
           key={'chave-produto-'+p.id}
           adicionaProdutoNaSacola={this.adicionaProdutoNaSacola}
           produto={p}
-          // key={p.id}
-          // nomeProduto={p.nome}
-          // valorProduto={p.valor}
-          // fotoProduto={p.foto}
         />
       )
     }).sort((prod, proxProd) => {
@@ -209,6 +262,7 @@ class App extends React.Component {
         </InfoProdutos>
         <ProdutosContainer>
           {listaProdutos}
+          
         </ProdutosContainer>
         <Sacola 
           // passamos as variáveis do estado do componente pai na forma de `props`
@@ -216,6 +270,17 @@ class App extends React.Component {
           produtosDentroDaSacola={this.state.produtosDentroDaSacola}
           removeProdutoDaSacola={this.removeProdutoDaSacola}
         />
+        <div>
+          
+         <Filtro
+          precoMin = {this.state.precoMin}
+          precoMax = {this.state.precoMax}
+          buscaNome = {this.state.buscaNome}
+          onChangePrecoMin = {this.onChangePrecoMin}
+          onChangePrecoMax = {this. onChangePrecoMax}
+          onChangeBuscaNome = {this. onChangeBuscaNome}
+          />     
+         </div>    
        <AreaFooter/>
       </div>
     );
