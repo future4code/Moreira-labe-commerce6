@@ -1,93 +1,84 @@
 import React from "react";
-import './App.css';
-import Produto from "./components/Produtos";
-import Filters from "./components/Filters";
+import '../App.css';
+import ProdutosNaPromo from "./ProdutosNaPromo";
+import Filters from "./Filters";
 import styled from "styled-components";
-import Header from "./components/Header";
-import FotoCapaPraia from './imagens/FotoCapaPraia.png';
-import AreaFooter from './components/AreaFooter';
-import {Sacola} from './components/Sacola';
-
-/**
- * Acho que essa constante poderia se chamar listaDeProdutos, porque na verdade aqui não é a sacola,
- * aqui é a lista da qual o usuário escolhe produtos para adicionar na sacola. A sacola à princípio inicia vazia
- * e não com todos os produtos já dentro dela.
- */
-const listaDeProdutos = [
-  {
-    id: 1,
-    nome: "Camiseta Braca estampada",
-    valor: 59.95,
-    foto: "https://img.ltwebstatic.com/images3_pi/2021/12/07/1638840920931be5d41b4a98e30f689a6cb8efc4bd_thumbnail_600x.webp",
-    quantidade: 1
-  },
-  {
-    id: 2,
-    nome: "Camiseta Cinza Planeta",
-    valor: 69.99,
-    foto: "https://img.ltwebstatic.com/images3_pi/2021/11/19/16373003925c20a8eec6501d826effbea514f2f11d_thumbnail_600x.webp",
-    quantidade: 1
-  },
-  {
-    id: 3,
-    nome: "Camiseta Preta Fases da Lua",
-    valor: 69.99,
-    foto: "https://img.ltwebstatic.com/images3_pi/2021/08/16/1629113857d9594dee1aea2c8e1cc692e2399fc8cb_thumbnail_600x.webp",
-    quantidade: 1
-  },
-  {
-    id: 4,
-    nome: "Camiseta Preta Astronaltinhas",
-    valor: 59.99,
-    foto: "https://img.ltwebstatic.com/images3_pi/2020/11/09/16048789577e0abd8329299afeedbdcc0697e7d4b6_thumbnail_600x.webp",
-    quantidade: 1
-  },
-  {
-    id: 5,
-    nome: "Camiseta Preta Planetas",
-    valor: 89.99,
-    foto: "https://img.ltwebstatic.com/images3_pi/2020/12/07/1607323576f2b0a27521b467b122b1f73252f13be3_thumbnail_600x.webp",
-    quantidade: 1
-  },
-  {
-    id: 6,
-    nome: "Camiseta Azul Atronauta",
-    valor: 95.99,
-    foto: "https://img.ltwebstatic.com/images3_pi/2021/04/25/16193208009c822eb33b3f89767be5a3cc01026422_thumbnail_600x.webp",
-    quantidade: 1
-  },
-  {
-    id: 7,
-    nome: "Camiseta Black Fibonacci",
-    valor: 99.99,
-    foto: "https://static3.tcdn.com.br/img/img_prod/497460/camiseta_fibonacci_1071_1_93222fe8e3b3c95062bc6fdf95a2896e.jpg",
-    quantidade: 1
-  }, 
-  {
-    id: 8,
-    nome: "Camisa roxa plantas",
-    valor: 89.99,
-    foto: "https://static.dafiti.com.br/p/Hering-Kids-Camiseta-Hering-Kids-Infantil-Planetas-Roxa-0750-3143566-1-zoom.jpg",
-    quantidade: 1
-  },
-];
+import {Sacola} from './Sacola';
 
 
-const InfoProdutos = styled.div`
+const listaDeProdutos =[
+  {
+    id: 9,
+    nome: "Camiseta Nasa",
+    promo: "99.99",
+    valor: 49.45,
+    foto: "https://i.pinimg.com/236x/a2/49/3f/a2493f313437fec59fd0da305b119342.jpg",
+    quantidade: 0
+  },
+  {
+    id: 10,
+    nome: "Camisa Coração",
+    promo: "89.99",
+    valor: 44.90,
+    foto: "https://i.pinimg.com/236x/db/34/7b/db347b59748d25d0c105d0a536712f26.jpg",
+    quantidade: 0
+  },
+  {
+    id: 11,
+    nome: "Camiseta Nasa",
+    promo: "99.99",
+    valor: 49.45,
+    foto: "https://i.pinimg.com/236x/a2/49/3f/a2493f313437fec59fd0da305b119342.jpg",
+    quantidade: 0
+  },
+  {
+    id: 12,
+    nome: "Camisa Coração",
+    promo: "89.99",
+    valor: 44.45,
+    foto: "https://i.pinimg.com/236x/db/34/7b/db347b59748d25d0c105d0a536712f26.jpg",
+    quantidade: 0
+  },
+]
+const ContainerProdutos = styled.div`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5em;
+    padding-right: 1em;
+    margin-left: 15em;
+    text-align: center;
+    border-radius: 20px;
+   `
+const InfocoesProdutos = styled.div`
     display: grid;
     justify-items: center;
     grid-template-columns: repeat(2, 1fr);
-    padding: 2em;
+    padding: 1em;
+    text-align: center;
 `
 
-const ProdutosContainer = styled.div`
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    padding: 16px;
+const Botao = styled.button `
+    position: relative;
+    left: 30em;
+    bottom: 10em;
+    border-radius: 0.8em;
+    background-color: #c83e3b;
+    color: white;
+    transition: 0.2s ease;
+    align-self: center;
+    padding: 0.5em;
+    font-size: 2em;
+    cursor: pointer;
+    font-weight: bold;
+      :hover{
+        background-color: #ff1616;
+      }
+      :active{
+        background-color: #c83e3b;
+      }
 `
 
-class App extends React.Component {
+class ProdutosNaPromocao extends React.Component {
 
   /**
    * A definição do state dentro do componente deve ser sempre feita dentro do método
@@ -174,14 +165,10 @@ class App extends React.Component {
 
     const listaProdutos = this.state.produtos.map((p) => {
       return (
-        <Produto 
+        <ProdutosNaPromo 
           key={'chave-produto-'+p.id}
           adicionaProdutoNaSacola={this.adicionaProdutoNaSacola}
           produto={p}
-          // key={p.id}
-          // nomeProduto={p.nome}
-          // valorProduto={p.valor}
-          // fotoProduto={p.foto}
         />
       )
     }).sort((prod, proxProd) => {
@@ -193,33 +180,29 @@ class App extends React.Component {
         return -1 * this.state.ordenacao
       }
     });
-    
+        
     return (
       <div>
-        <Header/>
-        <div>
-          <img className="fotoCapa" src={FotoCapaPraia}/>
-        </div>
-        <InfoProdutos>
+        <InfocoesProdutos>
           <p>Quantidade de Produtos: {listaProdutos.length}</p>
           <Filters
             ordenacao={this.ordenacao}
             onChangeOrdenacao={this.onChangeOrdenacao}
           />
-        </InfoProdutos>
-        <ProdutosContainer>
+        </InfocoesProdutos>
+        <ContainerProdutos>
           {listaProdutos}
-        </ProdutosContainer>
+        </ContainerProdutos>
         <Sacola 
           // passamos as variáveis do estado do componente pai na forma de `props`
           // para o componente filho
           produtosDentroDaSacola={this.state.produtosDentroDaSacola}
           removeProdutoDaSacola={this.removeProdutoDaSacola}
         />
-       <AreaFooter/>
+      
       </div>
     );
   }
 }
 
-export default App;
+export default ProdutosNaPromocao;
