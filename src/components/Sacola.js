@@ -42,65 +42,44 @@ font-family: arial;
 
 export class Sacola extends React.Component {
 
-  state = {
-      sacolaProdutos: [
-          {
-              id: 4,
-              nome: 'Camiseta Mundo da Lua',
-              preco: 10.55,
-              quantidade: 4
-          },
-          {
-              id: 3,
-              nome: 'Camiseta Anéis de Plutão',
-              preco: 90.45,
-              quantidade: 3
-          }
-      ]
-  }
+    /**
+     * A lista de produtos dentro da sacola `produtosDentroDaSacola`
+     * não precisa ser definida no state do componente, pois já está vindo 
+     * para o componente através dos `props` 
+     */
+    constructor(props) {
+        super(props);
+    }
 
-  valorTotal = () => {
-      let total = 0;
+    valorTotal = () => {
+        let total = 0;
+        for (let item of this.props.produtosDentroDaSacola) {
+            total = total + item.valor * item.quantidade
+        }
+        return total.toFixed(2)
+    }
 
-      for (let item of this.state.sacolaProdutos) {
-          total = total + item.preco * item.quantidade
-      }
-      return total.toFixed(2)
-  }
-
-  removeProduto = (idProduto) => {
-      const novaSacolaProdutos = this.state.sacolaProdutos.map((produto) => {
-          if (produto.id === idProduto){
-              return {
-                  ...produto,
-                  quantidade: produto.quantidade - 1
-              }
-          }
-          return produto
-      })
-
-  this.setState({sacolaProdutos: novaSacolaProdutos.filter((produto) => produto.quantidade >= 1)})
-      }
-
-  render() {
-      return (
-          <ContainerSacola>
-              <InfoGeralSacola>
-                  <h3>Sacola:</h3>
-                  <p>Total: R$ {this.valorTotal()}</p>
-                  <ListaProdutos>
-                      {this.state.sacolaProdutos.map((produto) => {
-                          return <CadaProduto>
-                              <p className='QuantidadeNomeProdutos'>{produto.quantidade} {produto.nome}</p>
-                              <button className='BotaoRemover' onClick={() => this.removeProduto
-                                  (produto.id)}>
-                                  Remover
-                              </button>
-                          </CadaProduto>
-                      })}
-                  </ListaProdutos>
-              </InfoGeralSacola>
-          </ContainerSacola>
-      )
-  }
+    render() {
+        return (
+            <ContainerSacola>
+                <InfoGeralSacola>
+                    <h3>Sacola:</h3>
+                    <p>Total: R$ {this.valorTotal()}</p>
+                    <ListaProdutos>
+                        {this.props.produtosDentroDaSacola.map((produto, index) => {
+                            return <CadaProduto key={'produto-chave-'+index}>
+                                <p className='QuantidadeNomeProdutos'>{produto.quantidade} {produto.nome}</p>
+                                <button 
+                                    className='BotaoRemover' 
+                                    onClick={() => this.props.removeProdutoDaSacola(produto.id)}
+                                >
+                                    Remover
+                                </button>
+                            </CadaProduto>
+                        })}
+                    </ListaProdutos>
+                </InfoGeralSacola>
+            </ContainerSacola>
+        )
+    }
 }

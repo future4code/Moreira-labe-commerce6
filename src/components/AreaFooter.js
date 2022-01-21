@@ -31,8 +31,8 @@ class AreaFooter extends React.Component{
   
     <Footer>
       <Ul>
-              <li><Coracao><a herf="http://fluttering-coast.surge.sh/"><MdFavoriteBorder/></a></Coracao></li>
-              <li> fjhoidashfpsdo </li>
+              <li><Coracao><MdFavoriteBorder/></Coracao></li>
+              
       </Ul>
   
     </Footer>

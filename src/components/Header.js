@@ -61,7 +61,8 @@ const Ul =styled.ul`
   }
 `
 
-class ContainerHeader extends React.Component {
+
+class AreaHeader extends React.Component {
 
     
 
@@ -76,8 +77,8 @@ class ContainerHeader extends React.Component {
           <Lupa><MdSearch/></Lupa>
           <Ul>
             <li><Coracao><MdFavoriteBorder/></Coracao></li>
-            <li> <a herf="http://fluttering-coast.surge.sh/"><Pessoa><IoPersonOutline/></Pessoa></a> </li>
-            <li> <a her="http://fluttering-coast.surge.sh/"><Sacola><MdOutlineShoppingBag/></Sacola></a> </li>
+            <li> <Pessoa><IoPersonOutline/></Pessoa> </li>
+            <li> <Sacola><MdOutlineShoppingBag/></Sacola> </li>
           </Ul>
         </Header>
 
@@ -87,4 +88,4 @@ class ContainerHeader extends React.Component {
     )
   }
 }
-export default ContainerHeader;
+export default AreaHeader;
