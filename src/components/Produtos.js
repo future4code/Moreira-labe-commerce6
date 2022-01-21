@@ -77,7 +77,7 @@ class Produto extends React.Component {
         <Botao
           className='BotaoAdicionar' 
           onClick={() => this.props.adicionaProdutoNaSacola(this.props.produto)}
-        >Adicionar na Sacola </Botao>
+        >Adicionar à Sacola </Botao>
         
       </ProdutoContainer>
     );
