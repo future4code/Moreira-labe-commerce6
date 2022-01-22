@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 
 const ProdutoContainer = styled.div`
-
   width: 100%;
   margin-bottom: 50px;
   
@@ -19,7 +18,6 @@ const Preco = styled.p`
   font-size: 1.5em;
   font-weight: bold;
   margin: 0;
-
 `
 
 const NomeProduto = styled.p`
@@ -33,7 +31,6 @@ const Promo = styled.p`
   font-size: 0.5;
   margin: 0;
   text-decoration: line-through;
-
 `
 
 const Botao = styled.button `
@@ -67,18 +64,18 @@ class Produto extends React.Component {
 
     return (
       <ProdutoContainer >
-        
+
         <a><FotoProduto src={this.props.produto.foto} alt="Imagem do produto" /></a>
         <NomeProduto>{this.props.produto.nome}</NomeProduto>
         <Preco>R${this.props.produto.valor}</Preco>
-        
-        
+
+
 
         <Botao
           className='BotaoAdicionar' 
           onClick={() => this.props.adicionaProdutoNaSacola(this.props.produto)}
-        >Adicionar à Sacola </Botao>
-        
+        >Adicionar na Sacola </Botao>
+
       </ProdutoContainer>
     );
   }

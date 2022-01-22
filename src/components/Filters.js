@@ -3,7 +3,7 @@ import React from "react"
 class Filtros extends React.Component {
 
     render() {
-  
+
       return (
         <div>
         <label>Ordenação:</label>
@@ -19,5 +19,5 @@ class Filtros extends React.Component {
       );
     }
   }
-  
+
   export default Filtros;

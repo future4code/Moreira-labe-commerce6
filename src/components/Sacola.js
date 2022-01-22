@@ -25,7 +25,6 @@ grid-auto-flow: column;
 align-items: center;
 justify-content: space-between;
 font-family: arial;
-
 .QuantidadeNomeProdutos{
   margin: 0;
   font-style: bold;
