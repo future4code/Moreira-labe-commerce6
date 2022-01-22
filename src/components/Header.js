@@ -23,7 +23,7 @@ const Header = styled.header`
     border-radius: 3px;
     width: 500px;
     }
-`;
+`
 
 const Lupa =styled.span`
   color: #C0C0C0;
@@ -61,11 +61,7 @@ const Ul =styled.ul`
   }
 `
 
-
-class AreaHeader extends React.Component {
-
-    
-
+class ContainerHeader extends React.Component {
 
   render() {
     return (
@@ -73,19 +69,18 @@ class AreaHeader extends React.Component {
       
         <Header>
           <h3>Astrocad</h3>
-          <input type="text" class="campoBusca" placeholder="Buscar Produtos"/>
+          <input type="text" className="campoBusca" placeholder="Buscar Produtos"/>
           <Lupa><MdSearch/></Lupa>
           <Ul>
             <li><Coracao><MdFavoriteBorder/></Coracao></li>
-            <li> <Pessoa><IoPersonOutline/></Pessoa> </li>
-            <li> <Sacola><MdOutlineShoppingBag/></Sacola> </li>
+            <li> <a herf="http://fluttering-coast.surge.sh/"><Pessoa><IoPersonOutline/></Pessoa></a> </li>
+            <li> <a her="http://fluttering-coast.surge.sh/"><Sacola><MdOutlineShoppingBag/></Sacola></a> </li>
           </Ul>
         </Header>
 
     </div>
-    
       
     )
   }
 }
-export default AreaHeader;
+export default ContainerHeader;

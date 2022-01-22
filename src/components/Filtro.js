@@ -19,10 +19,9 @@ class filtroProduto extends React.Component {
           <input 
           type ="number"
           value={this.props.precoMin}
-          onChange={this.props.onChangePrecoMin}
+          onChange={this.props.precoMin}
           placeholder="Valor"
-          >{this.props.produtosDoFiltro}</input>
-
+          />
         </div>
 
         <div>
@@ -32,7 +31,7 @@ class filtroProduto extends React.Component {
           type ="number"
           name ="nome"
           value={this.props.precoMax}
-          onChange={this.props.onChangePrecoMax}
+          onChange={this.props.PrecoMax}
           placeholder="Valor"
           />
         </div>
@@ -44,7 +43,7 @@ class filtroProduto extends React.Component {
           type = "text"
           name='nome'
           value={this.props.buscaNome}
-          onChange={this.props.onChangeBuscaNome}
+          onChange={this.props.buscaNome}
           />
         </div>
         </nav>
