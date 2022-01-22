@@ -21,7 +21,8 @@ class filtroProduto extends React.Component {
           value={this.props.precoMin}
           onChange={this.props.precoMin}
           placeholder="Valor"
-          />
+          >{this.props.produtosDoFiltro}</input>
+
         </div>
 
         <div>
@@ -35,7 +36,6 @@ class filtroProduto extends React.Component {
           placeholder="Valor"
           />
         </div>
-
         <div>
           <p>Filtrar por Produto:</p>
 
