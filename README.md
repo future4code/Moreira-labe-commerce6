@@ -18,13 +18,13 @@ ________________________________________________________________________________
 
 \
 **Desenvolvedores**:\
-Carlise Debona\
-Diego Conte\
-José Antônio dos Santos Junior
+[Carlise Debona](https://github.com/Carlisegd)\
+[Diego Conte](https://github.com/diegocomte)\
+[José Antônio dos Santos Junior](https://github.com/antoniosantos2)
 
 \
 **Site**\
-[Surge Link](lowly-owner.surge.sh)
+[ASTROCAD](lowly-owner.surge.sh)
 
 \
 **Imagens**
