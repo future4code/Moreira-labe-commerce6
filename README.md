@@ -6,7 +6,7 @@ ________________________________________________________________________________
 
 
 **Tecnologias utilizadas**:\
-[React](https://reactjs.org/)
+[React](https://reactjs.org/)\
 [HTML](https://html.spec.whatwg.org/multipage/)\
 [CSS](https://www.w3.org/Style/CSS/Overview.en.html)\
 [Surge](https://surge.sh/)\
