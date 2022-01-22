@@ -4,6 +4,7 @@ A ASTROCAD tem uma simples missão: te levar pra outro mundo com preços nada es
 
 __________________________________________________________________________________________________________
 
+
 **Tecnologias utilizadas**:\
 [React](https://reactjs.org/)
 [HTML](https://html.spec.whatwg.org/multipage/)\
@@ -11,19 +12,18 @@ ________________________________________________________________________________
 [Surge](https://surge.sh/)\
 [Visual Studio Code](https://code.visualstudio.com/docs/editor/vscode-web)
 
+
 **Sites e recursos**:\
 [Inserir Outros Recusos](Inserir Links)
 
 
 **Desenvolvedores**:
-
 Carlise Debona\
 Diego Conte\
 José Antônio dos Santos Junior
 
 
 **Site**
-
 Surge Link >>> lowly-owner.surge.sh
 
 
