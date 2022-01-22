@@ -8,7 +8,7 @@ import FotoCapaPraia from './imagens/FotoCapaPraia.png';
 import AreaFooter from './components/AreaFooter';
 import {Sacola} from './components/Sacola';
 import AreaPromo from './components/AreaPromo';
-
+import Filtro from './components/Filtro';
 
 const listaDeProdutos = [
   {
@@ -123,13 +123,32 @@ class App extends React.Component {
       produtos: listaDeProdutos,
       ordenacao: -1,
       // vamos inicializar uma variável que representa os produtos adicionados na sacola
-      produtosDentroDaSacola: []
+      produtosDentroDaSacola: [],
+
+      precoMin: '',
+      precoMax: '',
+      buscaNome:''
     };
   }
 
   onChangeOrdenacao = (event) => {
     this.setState({ ordenacao: event.target.value });
   }
+
+  onChangePrecoMax = (event) => {
+    this.setState({ precoMax: event.target.value })
+
+  };
+
+  onChangePrecoMin = (event) => {
+    this.setState({ precoMin: event.target.value })
+
+  };
+
+  onChangeBuscaNome = (event) => {
+    this.setState({ buscaNome: event.target.value })
+
+  };
 
   // Esse método será chamado por cada card de produto
   adicionaProdutoNaSacola = novoProdutoParaAdicionar => {
@@ -243,6 +262,12 @@ class App extends React.Component {
           // para o componente filho
           produtosDentroDaSacola={this.state.produtosDentroDaSacola}
           removeProdutoDaSacola={this.removeProdutoDaSacola}
+        />
+        <Filtro
+        precoMin = {this.state.onChangePrecoMin}
+        precoMax = {this.state.onChangePrecoMax}
+        buscaNome = {this.state.onChangeBuscaNome}
+        
         />
        <AreaFooter/>
       </div>
