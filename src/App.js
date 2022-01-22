@@ -131,6 +131,9 @@ class App extends React.Component {
     };
   }
 
+
+  
+
   onChangeOrdenacao = (event) => {
     this.setState({ ordenacao: event.target.value });
   }
@@ -149,6 +152,10 @@ class App extends React.Component {
     this.setState({ buscaNome: event.target.value })
 
   };
+
+
+
+
 
   // Esse método será chamado por cada card de produto
   adicionaProdutoNaSacola = novoProdutoParaAdicionar => {
