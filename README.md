@@ -7,6 +7,7 @@ ________________________________________________________________________________
 
 **Tecnologias utilizadas**:\
 [React](https://reactjs.org/)\
+[StyledComponents](https://styled-components.com/)\
 [HTML](https://html.spec.whatwg.org/multipage/)\
 [CSS](https://www.w3.org/Style/CSS/Overview.en.html)\
 [Surge](https://surge.sh/)\
@@ -27,5 +28,5 @@ ________________________________________________________________________________
 [ASTROCAD](lowly-owner.surge.sh)
 
 \
-**Imagens**
+**Imagens**\
 INSERIR PRINTS DO SITE
