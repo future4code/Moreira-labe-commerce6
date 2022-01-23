@@ -2,15 +2,14 @@ import React from 'react';
 import Styled from 'styled-components';
 
 const ContainerSacola = Styled.section`
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr 1fr 1fr;
-  margin: 16px;
 `
 const InfoGeralSacola = Styled.section`
 border: 1px solid black;
 width: 300px;
 padding: 10px;
-font-family: arial;
+
 `
 
 const ListaProdutos = Styled.section`
@@ -24,19 +23,37 @@ display: grid;
 grid-auto-flow: column;
 align-items: center;
 justify-content: space-between;
-font-family: arial;
+
+
 .QuantidadeNomeProdutos{
   margin: 0;
   font-style: bold;
 }
 .BotaoRemover{
-  width: 80px;
-  border: 2px solid gray;
-  border-radius: 5px;
-  font-family: arial;
-  :hover{border: 2px solid black};
-  :active{background-color: white};
+  margin-top: 0.5em;
+    border: 1px solid;
+    border-radius: 0.8em;
+    background-color: #00BFFF;
+    color: white;
+    transition: 0.2s ease;
+    align-self: center;
+    padding: 0.4rem;
+    font-size: 0.8em;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 1s;
+      :hover{
+        background-color: #0000FF;
+        transform: scale(1.3);
+      }
+      :active{
+        background-color: #00BFFF;
+      }  
 }
+`
+
+const Texto = Styled.p`
+font-weight: bold;
 `
 
 export class Sacola extends React.Component {
@@ -58,12 +75,14 @@ export class Sacola extends React.Component {
         return total.toFixed(2)
     }
 
+    
+
     render() {
         return (
             <ContainerSacola>
                 <InfoGeralSacola>
-                    <h3>Sacola:</h3>
-                    <p>Total: R$ {this.valorTotal()}</p>
+                    <Texto>Total:</Texto>
+                    <p>R$ {this.valorTotal()}</p>
                     <ListaProdutos>
                         {this.props.produtosDentroDaSacola.map((produto, index) => {
                             return <CadaProduto key={'produto-chave-'+index}>

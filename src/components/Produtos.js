@@ -4,13 +4,23 @@ import styled from "styled-components";
 
 
 const ProdutoContainer = styled.div`
-  width: 100%;
+  width: 90%;
   margin-bottom: 50px;
-  
+  text-align: center;
+  margin-top: 0.;
 `
 
 const FotoProduto = styled.img`
-  width: 100%;
+  width: 90%;
+
+`
+const Div = styled.div`
+position: relative;
+background-color: transparent;
+transition: transform 1s;
+& div:nth-child(1):hover{
+transform: scale(1.3);
+}
 `
 
 const Preco = styled.p`
@@ -18,12 +28,14 @@ const Preco = styled.p`
   font-size: 1.5em;
   font-weight: bold;
   margin: 0;
+  text-align: center;
+
 `
 
 const NomeProduto = styled.p`
   color:black;
-  font-size: 0.5;
-  margin: 0;
+  font-size: 1em;
+  text-align: center;
 `
 
 const Promo = styled.p`
@@ -31,6 +43,7 @@ const Promo = styled.p`
   font-size: 0.5;
   margin: 0;
   text-decoration: line-through;
+
 `
 
 const Botao = styled.button `
@@ -45,13 +58,17 @@ const Botao = styled.button `
     font-size: 0.8em;
     cursor: pointer;
     font-weight: bold;
+    transition: transform 1s;
       :hover{
         background-color: #0000FF;
+        transform: scale(1.3);
       }
       :active{
         background-color: #00BFFF;
-      }
+      }  
 `
+
+
 
 class Produto extends React.Component {
 
@@ -64,18 +81,19 @@ class Produto extends React.Component {
 
     return (
       <ProdutoContainer >
-
-        <a><FotoProduto src={this.props.produto.foto} alt="Imagem do produto" /></a>
+        <Div>
+        <div><FotoProduto src={this.props.produto.foto} alt="Imagem do produto" /></div>
+        </Div>
         <NomeProduto>{this.props.produto.nome}</NomeProduto>
         <Preco>R${this.props.produto.valor}</Preco>
-
-
+        
+        
 
         <Botao
           className='BotaoAdicionar' 
           onClick={() => this.props.adicionaProdutoNaSacola(this.props.produto)}
-        >Adicionar na Sacola </Botao>
-
+        >Adicionar à Sacola </Botao>
+        
       </ProdutoContainer>
     );
   }
