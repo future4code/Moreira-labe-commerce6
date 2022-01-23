@@ -16,6 +16,7 @@ ________________________________________________________________________________
 \
 **Sites e recursos**:\
 [Canva](https://www.canva.com/en_gb/)
+[Lottie](https://lottiefiles.com/)
 
 \
 **Desenvolvedores**:\
