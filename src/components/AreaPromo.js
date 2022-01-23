@@ -97,7 +97,7 @@ class ProdutosNaPromocao extends React.Component {
       produtosDentroDaSacola: []
     };
   }
-
+  
   onChangeOrdenacao = (event) => {
     this.setState({ ordenacao: event.target.value });
   }
@@ -180,7 +180,7 @@ class ProdutosNaPromocao extends React.Component {
         return -1 * this.state.ordenacao
       }
     });
-
+        
     return (
       <div>
         <InfocoesProdutos>
@@ -199,7 +199,7 @@ class ProdutosNaPromocao extends React.Component {
           produtosDentroDaSacola={this.state.produtosDentroDaSacola}
           removeProdutoDaSacola={this.removeProdutoDaSacola}
         />
-
+      
       </div>
     );
   }

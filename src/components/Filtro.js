@@ -1,56 +1,56 @@
 import React from 'react';
+import styled from 'styled-components';
 
-class filtroProduto extends React.Component {
+
+
+const ContainerDiv = styled.div`
+  display: flex;
+
+  background-color:white;
+
+
  
-  constructor(props) {
-    super(props);
-}
-  render () {
-    return (
-      <div>
+  
+`
+  const Texto = styled.p`
+    font-weight: bold;
+    left: 1.8em;
+`
 
-        <nav>
+const Input = styled.input `
+  border: none;
+  border-bottom: 1px solid;
+  margin: 0.5em;
+`
 
-        <h3>Filtros</h3>
+function filtroProduto (props) {
+   
 
+  return (
+      <ContainerDiv >
         <div>
-          <p>Valor mínimo:</p>
+          <Texto >Valor mínimo:</Texto >
 
-          <input 
+          <Input 
           type ="number"
-          value={this.props.precoMin}
-          onChange={this.props.precoMin}
-          placeholder="Valor"
-          >{this.props.produtosDoFiltro}</input>
-
-        </div>
-
-        <div>
-          <p>Valor máximo:</p>
-
-          <input 
-          type ="number"
-          name ="nome"
-          value={this.props.precoMax}
-          onChange={this.props.PrecoMax}
-          placeholder="Valor"
+          value={props.precoMin}
+          onChange={props.onChangePrecoMin}
+          placeholder="R$"
           />
         </div>
-        <div>
-          <p>Filtrar por Produto:</p>
 
-          <input
-          type = "text"
-          name='nome'
-          value={this.props.buscaNome}
-          onChange={this.props.buscaNome}
+        <div>
+          <Texto >Valor máximo:</Texto >
+
+          <Input 
+          type ="number"
+          value={props.precoMax}
+          onChange={props.onChangePrecoMax}
+          placeholder="R$"
           />
         </div>
-        </nav>
-
-      </div>
-
+      </ContainerDiv >
     )
   }
-}
+
 export default filtroProduto;
