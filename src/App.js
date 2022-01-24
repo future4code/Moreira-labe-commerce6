@@ -149,7 +149,7 @@ const EtiquetaPromo2 = styled.div`
 `
 
 const IMG = styled.img`
-  width: 120%;
+  width: 100%;
 
 `
 
