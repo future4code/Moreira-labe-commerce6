@@ -128,7 +128,7 @@ const Quantidade = styled.p`
 `
 
 const Details =styled.details`
-  position: absolute;
+  position: relative;
   
   
   `
@@ -140,16 +140,16 @@ const DivProm = styled.div`
 const EtiquetaPromo = styled.div`
   position: absolute;
   left:38%;
-  top: 118%;
+  top: 218%;
 `
 const EtiquetaPromo2 = styled.div`
   position: absolute;
   left:63%;
-  top: 118%;
+  top: 218%;
 `
 
 const IMG = styled.img`
-  width: 100%;
+  width: 120%;
 
 `
 
@@ -180,10 +180,6 @@ const TextoFrete = styled.p`
 
 
 
-const Fotos = styled.div`
-  display: grid;
-  
-`
 
 
 
@@ -196,20 +192,6 @@ const Slideshow = styled.img`
     width: 98%;
     margin-top: 0.5%;
 
-  /* animation-duration: 25s;
-  animation-name: slidein;
-  animation-iteration-count: infinite;
-  @keyframes slidein {
-  from {
-    margin-left: 0%;
-    width: 100%
-  }
-
-  to {
-    margin-left: 100%;
-    width: 100%;
-  }
-} */
 `
   
 
@@ -357,10 +339,12 @@ class App extends React.Component {
                           onChangePrecoMax={this.onChangePrecoMax}                
                         />
                         <Quantidade>Quantidade: {filtroUsuario.length}</Quantidade>
-                        <Details><summary>Sacola</summary>
+                        <Details>
+                          <summary>Sacola </summary>
                         <Sacola 
                             produtosDentroDaSacola={this.state.produtosDentroDaSacola}
                             removeProdutoDaSacola={this.removeProdutoDaSacola}
+                          
                           />
                         </Details>
                         <Filters
