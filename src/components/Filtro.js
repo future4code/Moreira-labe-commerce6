@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import { FcEmptyFilter } from "react-icons/fc";
 
 
 const ContainerDiv = styled.div`
@@ -29,7 +29,8 @@ function filtroProduto (props) {
   return (
       <ContainerDiv >
         <div>
-          <Texto >Valor mínimo:</Texto >
+          
+          <Texto><FcEmptyFilter/> Valor mínimo:</Texto >
 
           <Input 
           type ="number"
