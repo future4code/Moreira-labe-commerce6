@@ -26,7 +26,7 @@ ________________________________________________________________________________
 
 \
 **Site**\
-[ASTROCAD](https://lowly-owner.surge.sh)
+[ASTROCAD](http://labored-cattle.surge.sh/)
 
 \
 **Imagens**\
