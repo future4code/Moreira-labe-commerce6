@@ -357,7 +357,7 @@ class App extends React.Component {
                           onChangePrecoMax={this.onChangePrecoMax}                
                         />
                         <Quantidade>Quantidade: {filtroUsuario.length}</Quantidade>
-                        <Details>
+                        <Details><summary>Sacola</summary>
                         <Sacola 
                             produtosDentroDaSacola={this.state.produtosDentroDaSacola}
                             removeProdutoDaSacola={this.removeProdutoDaSacola}
