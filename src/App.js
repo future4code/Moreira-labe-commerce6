@@ -1,15 +1,21 @@
 import React from "react";
 import './App.css';
+import styled from "styled-components";
+
 import Produto from "./components/Produtos";
 import Filters from "./components/Filters";
-import styled from "styled-components";
+
 import Header from "./components/Header";
 import FotoCapaPraia from './imagens/FotoCapaPraia.png';
 import AreaFooter from './components/AreaFooter';
 import { Sacola } from './components/Sacola';
 import Filtro from './components/Filtro';
-
-
+import Anima from './components/Anima';
+import Etiqueta from './components/Etiqueta';
+import { FcInTransit } from "react-icons/fc";
+import FotoSkate from './imagens/FotoSkate.png'
+import FotoModelosCapa from './imagens/FotoModelosCapa.png';
+import FotoModelos from './imagens/FotoModelos.png';
 
 //Array fora da função para melhor organização
 const listaDeProdutos = [
@@ -17,21 +23,21 @@ const listaDeProdutos = [
     id: 1,
     nome: "Camiseta branca estampada",
     valor: 59.95,
-    foto: "https://img.ltwebstatic.com/images3_pi/2021/12/07/1638840920931be5d41b4a98e30f689a6cb8efc4bd_thumbnail_600x.webp",
+    foto: "https://i.pinimg.com/236x/65/e6/98/65e698a4aea4dcf8afba471970c86c8b.jpg",
     quantidade: 1
   },
   {
     id: 2,
     nome: "Camiseta cinza Planeta",
     valor: 69.99,
-    foto: "https://img.ltwebstatic.com/images3_pi/2021/11/19/16373003925c20a8eec6501d826effbea514f2f11d_thumbnail_600x.webp",
+    foto: "https://i.pinimg.com/236x/6e/b0/db/6eb0dbaf292cb4873e52035b45bdf333.jpg",
     quantidade: 1
   },
   {
     id: 3,
     nome: "Camiseta preta Fases da Lua",
     valor: 69.99,
-    foto: "https://img.ltwebstatic.com/images3_pi/2021/08/16/1629113857d9594dee1aea2c8e1cc692e2399fc8cb_thumbnail_600x.webp",
+    foto: "https://i.pinimg.com/736x/5d/b1/fe/5db1fed006a75d0260a988307b21c2cb.jpg",
     quantidade: 1
   },
   {
@@ -45,12 +51,12 @@ const listaDeProdutos = [
     id: 5,
     nome: "Camiseta preta Planetas",
     valor: 89.99,
-    foto: "https://img.ltwebstatic.com/images3_pi/2020/12/07/1607323576f2b0a27521b467b122b1f73252f13be3_thumbnail_600x.webp",
+    foto: "https://i.pinimg.com/236x/10/54/8c/10548c2dd04434907e7ce74450be9b70.jpg",
     quantidade: 1
   },
   {
     id: 6,
-    nome: "Camiseta azul Atronauta",
+    nome: "Camiseta azul Astronauta",
     valor: 95.99,
     foto: "https://img.ltwebstatic.com/images3_pi/2021/04/25/16193208009c822eb33b3f89767be5a3cc01026422_thumbnail_600x.webp",
     quantidade: 1
@@ -59,7 +65,7 @@ const listaDeProdutos = [
     id: 7,
     nome: "Camiseta black Fibonacci",
     valor: 99.99,
-    foto: "https://static3.tcdn.com.br/img/img_prod/497460/camiseta_fibonacci_1071_1_93222fe8e3b3c95062bc6fdf95a2896e.jpg",
+    foto: "https://i.pinimg.com/236x/a2/49/3f/a2493f313437fec59fd0da305b119342.jpg",
     quantidade: 1
   },
   {
@@ -73,11 +79,11 @@ const listaDeProdutos = [
 
 //      Estilização CSS 
 const InfoProdutos = styled.div`
-    position: relative;
     display: flex;
     justify-items: center;
     grid-template-columns: repeat(2, 1fr);
     justify-content: space-around;
+    padding: 2em;
 `
 
 const ProdutosContainer = styled.div`
@@ -88,15 +94,14 @@ const ProdutosContainer = styled.div`
     justify-items: center;
 `
 
-const AreaCapa = styled.div`
-  display: block;
-  margin-bottom: -2.5em;
-`
 
-const Botao = styled.button `
-    position: relative;
-    left: 30em;
-    bottom: 10em;
+
+const Botao = styled.button ` 
+  
+    
+    position: absolute;
+    left: 75%;
+    bottom: 15%;
     border-radius: 0.8em;
     background-color: #c83e3b;
     color: white;
@@ -123,10 +128,112 @@ const Quantidade = styled.p`
 `
 
 const Details =styled.details`
-  position: relative;
+  position: absolute;
   
-  top: 1em;
+  
   `
+const DivProm = styled.div`
+  position: absolute;
+  left:35%;
+  bottom: 35%;
+`
+const EtiquetaPromo = styled.div`
+  position: absolute;
+  left:38%;
+  top: 118%;
+`
+const EtiquetaPromo2 = styled.div`
+  position: absolute;
+  left:63%;
+  top: 118%;
+`
+
+const IMG = styled.img`
+  width: 100%;
+
+`
+
+const Frete = styled.div`
+  color: #00FA9A;
+  background-color: black;
+  font-size: 1em;
+  padding: 0.5em;
+  
+`
+const TextoFrete = styled.p`
+  
+  animation-duration: 25s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+  @keyframes slidein {
+  from {
+    margin-left: 0%;
+    width: 20%
+  }
+
+  to {
+    margin-left: 80%;
+    width: 20%;
+  }
+}
+`
+
+
+
+const Fotos = styled.div`
+  display: grid;
+  
+`
+
+
+
+const ContainerSlides = styled.div`
+display: flex;
+
+`
+
+const Slideshow = styled.img`
+    width: 98%;
+    margin-top: 0.5%;
+
+  /* animation-duration: 25s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+  @keyframes slidein {
+  from {
+    margin-left: 0%;
+    width: 100%
+  }
+
+  to {
+    margin-left: 100%;
+    width: 100%;
+  }
+} */
+`
+  
+
+
+
+const ListaFotos = styled.li`
+  list-style-type: none;
+  position: relative;
+  width: 100%;
+  margin-bottom: 50px;
+
+`
+const ContainerLista = styled.ul`
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  list-style-type: none;
+  position: relative;
+
+
+`
+
+
+
 
 //Main function
 class App extends React.Component {
@@ -219,41 +326,73 @@ class App extends React.Component {
       })
 
     return (
-      <div>
+     
+       <div>
+       
         < Header
           buscaNome={this.state.buscaNome}
           onChangeBuscaNome={this.onChangeBuscaNome}
         />
-        <AreaCapa>
-          <img className="fotoCapa" src={FotoCapaPraia}  />
-          <Botao>Aproveite Agora</Botao>
-        </AreaCapa>
-        <InfoProdutos>
-              <Filtro
-                precoMin={this.state.precoMin}
-                precoMax={this.state.precoMax}
-                onChangePrecoMin={this.onChangePrecoMin}
-                onChangePrecoMax={this.onChangePrecoMax}                
-              />
-              <Quantidade>Quantidade: {filtroUsuario.length}</Quantidade>
-              <Details>
-                <Sacola
-                  produtosDentroDaSacola={this.state.produtosDentroDaSacola}
-                  removeProdutoDaSacola={this.removeProdutoDaSacola}
-                />
-              </Details>
-              <Filters
-              ordenacao={this.state.ordenacao}
-              onChangeOrdenacao={this.onChangeOrdenacao}
-              />
-        </InfoProdutos>
-        
-        <ProdutosContainer>
-          {filtroUsuario}
-        </ProdutosContainer>
 
+        <div>
+            <div>
+              <IMG className="fotoCapa" src={FotoCapaPraia}  />
+            </div>
+            <div>
+              <Botao>Aproveite Agora</Botao>
+            </div>
+            <DivProm>
+              <Anima/>
+            </DivProm>
+            <Frete><TextoFrete> <FcInTransit/> Frete grátis acima de R$130 </TextoFrete></Frete>
+        </div>
+        <div>
+              
+                  <InfoProdutos>
+                  
+                        <Filtro
+                          precoMin={this.state.precoMin}
+                          precoMax={this.state.precoMax}
+                          onChangePrecoMin={this.onChangePrecoMin}
+                          onChangePrecoMax={this.onChangePrecoMax}                
+                        />
+                        <Quantidade>Quantidade: {filtroUsuario.length}</Quantidade>
+                        <Details>
+                        <Sacola 
+                            produtosDentroDaSacola={this.state.produtosDentroDaSacola}
+                            removeProdutoDaSacola={this.removeProdutoDaSacola}
+                          />
+                        </Details>
+                        <Filters
+                        ordenacao={this.state.ordenacao}
+                        onChangeOrdenacao={this.onChangeOrdenacao}
+                        />
+                  </InfoProdutos>
+                        </div>
+                        <ProdutosContainer>
+                          {filtroUsuario}
+                        </ProdutosContainer>
+                        <EtiquetaPromo><Etiqueta/> </EtiquetaPromo>
+                        <EtiquetaPromo2><Etiqueta/> </EtiquetaPromo2>
+                
+                
+                
+                    <ContainerSlides>
+                        <ContainerLista>
+                          <ListaFotos><Slideshow  src={FotoSkate}  /></ListaFotos>
+                          <ListaFotos> <Slideshow  src={FotoModelosCapa} /></ListaFotos> 
+                          <ListaFotos>< Slideshow src={FotoModelos}  /></ListaFotos>
+                        </ContainerLista>
+                    </ContainerSlides>   
+                  
+                    
+                
+                
+        
         <AreaFooter />
+
       </div>
+     
     );
   }
 }

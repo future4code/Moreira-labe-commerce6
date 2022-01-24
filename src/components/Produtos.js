@@ -7,7 +7,7 @@ const ProdutoContainer = styled.div`
   width: 90%;
   margin-bottom: 50px;
   text-align: center;
-  margin-top: 0.;
+  margin-top: 0;
 `
 
 const FotoProduto = styled.img`
@@ -36,14 +36,6 @@ const NomeProduto = styled.p`
   color:black;
   font-size: 1em;
   text-align: center;
-`
-
-const Promo = styled.p`
-  color:red;
-  font-size: 0.5;
-  margin: 0;
-  text-decoration: line-through;
-
 `
 
 const Botao = styled.button `
@@ -82,6 +74,7 @@ class Produto extends React.Component {
     return (
       <ProdutoContainer >
         <Div>
+        
         <div><FotoProduto src={this.props.produto.foto} alt="Imagem do produto" /></div>
         </Div>
         <NomeProduto>{this.props.produto.nome}</NomeProduto>
@@ -93,7 +86,7 @@ class Produto extends React.Component {
           className='BotaoAdicionar' 
           onClick={() => this.props.adicionaProdutoNaSacola(this.props.produto)}
         >Adicionar à Sacola </Botao>
-        
+      
       </ProdutoContainer>
     );
   }

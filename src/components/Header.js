@@ -10,7 +10,7 @@ import { IoPersonOutline } from "react-icons/io5";
 
 
 const Header = styled.header`
-  background-image: linear-gradient(to right, #00BFFF , #00FA9A, #0000FF);
+  background-image: linear-gradient(to right, #00BFFF , #00FA9A, #0000FF, black);
   display:flex;
   justify-content: space-between;
   height: 4rem;
@@ -21,12 +21,9 @@ const Header = styled.header`
   width: 100%;
   z-index: 2;
     .campoBusca {
-    border: 0 none;
+    border: none;
     padding: 5px 5px;
     outline: 0;
-    border-radius: 3px;
-    width: 500px;
-    border: none;
     }
 `;
 
@@ -34,7 +31,7 @@ const Lupa = styled.span`
   color: #C0C0C0;
   font-size: 1.5em;
   position: relative;
-  right: 20%;
+  right: 4%;
   margin-top: 0.5%;
 `
 const Sacola = styled.span`
@@ -53,7 +50,6 @@ const Pessoa = styled.span`
   color: white;
   font-size: 1.5rem;
   padding: 0.5rem;
-
 `
 const Ul = styled.ul`
   display:flex;
@@ -62,7 +58,6 @@ const Ul = styled.ul`
   list-style-type: none;
   .li{
     text-decoration: none;
-
   }
 `
 const Button = styled.button`
@@ -74,11 +69,19 @@ const Button = styled.button`
     transition: transform 0.5s;
         :hover{
         transform: scale(1.3);
-      }
+}
 `
 
+const Input = styled.input`
+    position: absolute;
+    border: none;
+    padding: 5px 5px;
+    outline: 0;
+    border-radius:5px;
+    width: 200px;
+    left: 80%;
 
-
+`
 
 function AreaHeader(props) {
 
@@ -87,7 +90,7 @@ function AreaHeader(props) {
       <Header>
         <h3>Astrocad</h3>
 
-        <input type="text"
+        <Input type="text"
           value={props.buscaNome}
           onChange={props.onChangeBuscaNome}
           placeholder='Buscar produtos'
@@ -95,11 +98,7 @@ function AreaHeader(props) {
 
         <Lupa><MdSearch /></Lupa>
        
-        <Ul>
-          <li><Button><Coracao><MdFavoriteBorder /></Coracao></Button></li>
-          <li> <Pessoa><IoPersonOutline /></Pessoa> </li>
-          <li> <Sacola><MdOutlineShoppingBag /></Sacola> </li>
-        </Ul>
+        
       </Header>
 
     </div>
